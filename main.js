@@ -15,7 +15,7 @@ var pcscore =0;
 
 rightX = 0;
 rightY = 0;
-
+gamestatus=0;
 rightscore =0;
 //ball x and y and speedx speed y and radius
 var ball = {
@@ -193,15 +193,17 @@ function gotPoses(results){
 
 function draw(){
   image(video,0,0,700,600);
-
+if(gamestatus=="start"){
   if(rightscore > 0.2){
         
-   fill("#FF0000");
-   stroke("#FF0000");
-   circle(rightX,rightY, 20);
-    
-  
+    fill("#FF0000");
+    stroke("#FF0000");
+    circle(rightX,rightY, 20);
+     
+   
+ }
 }
+
  
 }
 
@@ -209,3 +211,7 @@ function modelLoaded(){
   console.log("Model Loaded!");
 }
 
+function startGame(){
+gamestatus="start";
+document.getElementById("status").innerHTML = "Game has loaded, Enjoy!"
+}
